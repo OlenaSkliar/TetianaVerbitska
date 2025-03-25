@@ -431,6 +431,9 @@ h2:not(.about h2, .contact h2):before{
     align-items: flex-start;
     padding-top: 60px
   }
+  .main-block.catalog-course-single{
+    height: auto
+  }
   
 }
 @media all and (max-width: 768px){
