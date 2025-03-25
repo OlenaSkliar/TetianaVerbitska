@@ -1,5 +1,6 @@
 .header-course-catalog{
-    background: #ffffff25
+    /* background: #ffffff25; */
+    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.25),rgba(255, 255, 255, 0) 100%);
 }
 .main-block.course-catalog .section-content >div{
     display: flex;
@@ -35,9 +36,11 @@
 .check-mark-list li:not(:first-child){
     margin-top: 20px
 }
-.main-block.course-catalog h1 + p{
+.main-block.course-catalog p{
     margin: 15px 0 0;
-    text-align: left
+    text-align: left;
+    max-width: 80%;
+    color: var(--white)
 }
 .main-block.course-catalog h1{
     text-align: left
@@ -249,7 +252,7 @@
     box-shadow: var(--items-box-shadow-2)
 }
 .list-of-courses__item .content{
-    padding: 20px;
+    padding: 20px 20px 10px;
     position: relative
 }
 .list-of-courses__item .category{
@@ -267,6 +270,11 @@
     margin-top: 15px;
     line-height: 1.2
 }
+.list-of-courses__item .title *,
+.list-of-courses__item .author .name
+{
+    font-size: 2rem
+}
 .list-of-courses__item .rating{
     margin-top: 5px
 }
@@ -274,19 +282,19 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 20px;
+    padding: 10px 20px 20px;
     border-top: 1px solid var(--section-bg);
 }
 .list-of-courses__item .author .img-container{
     border-radius: 50%;
     overflow: hidden;
-    width: 70px;
-    height: 70px
+    width: 60px;
+    height: 60px
 }
 .list-of-courses__item .author >div:last-child{
     display: flex;
     flex-direction: column;
-    gap: 12px
+    gap: 8px
 }
 .list-of-courses__item .author .name{
     font-size: 2.2rem;
@@ -341,7 +349,7 @@
     .main-block.course-catalog h1{
         text-align: center;
     }
-    .main-block.course-catalog h1 + p{
+    .main-block.course-catalog p{
         text-align: center;
         margin: 15px auto 0
     }
@@ -355,8 +363,19 @@
     .list-of-courses__items{
         grid-template-columns: 1fr 1fr
     }
-}
-@media all and (max-width: 991px){
+    .main-block {
+        height: fit-content;
+        position: relative
+    }
+    .course-catalog__numbers .text{
+        color: var(--black)
+    }
+    .main-block .container{
+        padding-top: 125px
+    }
+    .main-block .bg-wrap{
+        height: 100%
+    }
     .popular-categories{
         grid-template-columns: 1fr 1fr
     }
@@ -376,8 +395,8 @@
     .contact-form-popup.filter-popup .contact-form-popup__content{
         max-width: 100%
     }
-
 }
+
 
 @media all and (max-width: 768px){
     .list-of-courses__items{
@@ -388,5 +407,10 @@
 }
 .contact-form-popup.filter-popup .contact-form-popup__content{
     max-width: 100%
+}
+.course-catalog__numbers{
+    flex-direction: column;
+    width: 100%;
+    align-items: center
 }
 }
