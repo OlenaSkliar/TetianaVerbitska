@@ -427,7 +427,7 @@ h2:not(.about h2, .contact h2):before{
   .course-program__item.open .course-program__content{
     grid-template-columns: 1fr
   }
-  .main-block .container{
+  .main-block.catalog-course-single .container{
     align-items: flex-start;
     padding-top: 60px
   }
