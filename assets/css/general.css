@@ -1,0 +1,1568 @@
+:root{
+    --main-font: 'Poppins', sans-serif;
+    --black: #111111;
+    --gray: #808080;
+    --line-color: #E4E4E4;
+    --border-color: #B7B7B7;
+    --section-bg: #D4D4D435;
+    --main-color: #A30049;
+    --main-color-transparent: #A3004926;
+    --main-color-transparent-2: #A3004940;
+    --main-gradient: linear-gradient(180.00deg, rgb(238, 0, 106),rgb(81, 1, 36) 100%);
+    /*
+changed in styles
+changed --hover-gradient
+*/
+    --hover-gradient: linear-gradient(180.00deg, rgb(255, 0, 120),rgb(115, 2, 45) 100%);
+    --section-bg-after: linear-gradient(180.00deg, rgba(160, 1, 91, 0.75),rgba(83, 1, 49, 0.60) 100%);
+    --white: #ffffff;
+    --red: #f03838;
+    --green: #51B687;
+    --image-border-radius: 20px;
+    --section-padding: 120px;
+    --items-box-shadow: 0 0 30px 0px rgba(17, 17, 17, 0.15);
+    /*
+changed in styles 2
+add --items-box-shadow-2, change  --btn-size
+*/
+    --items-box-shadow-2: 0 0 30px 0px var(--main-color-transparent);
+    --btn-size: 45px
+}
+    /*
+changed in styles 2
+changed the font everywhere from 1.8rem to 1.6rem
+*/
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-ExtraLight.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat/Montserrat-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal
+}
+
+
+
+/* common styles */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+html{
+    font-size: 10px
+}
+body{
+    font-size: 1.6rem;
+    font-family: var(--main-font);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--black);
+    overflow-x: hidden
+}
+address{
+    font-style: normal
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+/*
+changed in styles
+border, background, box-shadow
+*/
+/*
+changed in styles 2
+add select
+*/
+/*
+changed in styles 3
+add line-height: 1
+add .step .date
+*/
+input, textarea, select, .select, .step .date{
+    border: none;
+    box-shadow: var(--items-box-shadow);
+    /*background: var(--main-color-transparent);*/
+    outline: none;
+    height: var(--btn-size);
+    width: 100%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--main-font);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--black);
+    padding: 0 25px;
+    transition: 0.3s
+}
+/*
+changed in styles 3
+textarea всюди min-height: 120px
+*/
+textarea{
+    min-height: 120px
+}
+/*
+changed in styles 3
+add checkbox styles
+beginning of checkbox styles
+*/
+.checkbox-wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+.checkbox-wrap:not(:first-child){
+    margin-top: 10px
+}
+.checkbox-wrap label{
+    line-height: 1;
+    margin-bottom: 0
+}
+input[type="checkbox"]{
+    width: 22px;
+    height: 22px;
+    opacity: 0
+}
+.checkbox-wrap:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
+.checkbox-wrap.checked:before{
+    border-color: var(--main-color)
+}
+.checkbox-wrap.checked:after{
+    content: url('../img/icons/account/checked.svg');
+    position: absolute;
+    top: -3px;
+    left: 5.5px
+}
+.checkbox-wrap.checked label{
+    color: var(--main-color)
+}
+/*
+changed in styles 3
+end of checkbox styles
+*/
+/*
+changed in styles 2
+add .select-container, select and select:hover styles
+*/
+select{
+    appearance: none
+}
+select:hover, .select:hover{
+    cursor: pointer
+}
+.select-container{
+    position: relative
+}
+/*
+changed in styles 3
+top: 12px;
+line-height: 1
+*/
+.select-container:after{
+    content: url('../img/icons/arrow-down-black.svg');
+    position: absolute;
+    right: 25px;
+    top: 12px;
+    transition: 0.3s;
+    line-height: 1
+}
+/*
+changed in styles 3
+top: 15px
+*/
+.select-container:hover:after{
+    content: url('../img/icons/arrow-down-black.svg');
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    transform: rotate(-180deg);
+    transition: 0.3s
+}
+.select{
+    justify-content: flex-start
+}
+.select .options{
+    border-radius: var(--image-border-radius);
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    background: #5c5d5b;
+    padding: 10px 25px;
+    z-index: 1
+}
+.registration-page__form .select .options >div{
+    padding: 10px 0;
+    transition: 0.3s
+}
+.registration-page__form .select .options >div:not(:first-child){
+    border-top: 1px solid var(--border-color)
+}
+.registration-page__form .select .options >div:hover, .registration-page__form .select .options >div:focus{
+    color: var(--main-color);
+    transition: 0.3s
+}
+
+/*
+changed in styles
+*/
+/*
+changed in styles 2
+add select:focus and box-shadow
+*/
+input:focus, textarea:focus, select:focus, .select:focus{
+    border: 1px solid var(--main-color);
+    box-shadow: var(--items-box-shadow-2);
+    color: var(--black);
+    transition: 0.3s
+}
+input::placeholder, textarea::placeholder{
+    color: var(--gray);
+    transition: 0.3s
+}
+input:focus::placeholder, textarea:focus::placeholder{
+    color: var(--white);
+    transition: 0.3s
+}
+form label{
+    color: var(--black);
+    display: inline-block;
+    margin-bottom: 4px
+}
+/*
+changed in styles
+remove border and height
+changed paddings
+*/
+textarea{
+    resize: none;
+    outline: none;
+    /*height: 180px;*/
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+/*
+changed in styles 2
+max-width: 1240px
+*/
+.container{
+    width: 100%;
+    max-width: 1240px;
+    padding: 0 20px;
+    margin: 0 auto
+}
+a{
+    text-decoration: none;
+    transition: 0.3s
+}
+
+section a{
+    color: var(--main-color);
+    transition: 0.3s
+}
+section a:not(.btn, .testimonials__item):hover, .main-menu ul a:hover{
+    background-image: var(--hover-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    transition: 0.3s
+}
+ul{
+    list-style: none
+}
+ /*
+    changed in styles 3
+   add :last-child
+    */
+section ul:not(nav ul){
+    margin: 15px 0
+}
+section ul:last-child{
+    margin-bottom: 0
+}
+section ul li:not(nav ul li){
+    width: fit-content;
+    line-height: 1;
+    padding-left: 20px;
+    position: relative
+}
+section ul li:not(:first-child, nav ul li){
+    margin-top: 1rem
+}
+section ul li:not(nav ul li):before{
+    content: '✧';
+    color: var(--main-color);
+    position: absolute;
+    left: 0;
+    top: 0
+}
+ /*
+    changed in styles 2
+   margin-top: 10px
+    */
+section p:not(:first-child){
+    margin-top: 10px
+}
+ /*
+    changed in styles 2
+   font-size: 5rem;
+    */
+h1{
+    font-size: 5rem;
+    line-height: 1.2;
+    font-weight: 600
+}
+/*
+    changed in styles 2
+    font-size: 3.6rem;
+    */
+     /*
+    changed in styles 3
+     add .module-title span
+    */
+h2, .module-title span{
+    font-size: 3.6rem;
+    line-height: 1.2;
+    font-weight: 600
+}
+/*
+    changed in styles 2
+     font-size: 2.6rem
+    */
+
+h3, .account-title{
+    font-size: 2.6rem;
+    line-height: 1.2;
+    word-break: break-word;
+    font-weight: 600
+}
+h4{
+    font-size: 2.2rem;
+    font-weight: 600
+}
+
+
+/* end of common styles */
+
+
+/* common classes */
+/*
+changed in styles 2
+added .mb-sp styles
+*/
+.mb-sp{
+    margin-bottom: var(--section-padding)
+}
+/*
+    changed in styles 2
+     font-size: 1.6rem
+     margin-bottom: 6px
+    */
+.subtitle:not(.main-block .subtitle){
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-image: var(--hover-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: inline-block;
+    margin-bottom: 6px
+}
+/*
+changed in styles 3
+added .img-container styles
+*/
+.img-container{
+    display: flex
+}
+.img-container img, .img-container video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+/*
+changed in styles 3
+added .flex-between styles
+*/
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+/*
+changed in styles 2
+added width to .btn
+*/
+.btn{
+    height: var(--btn-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    padding: 0 30px;
+    cursor: pointer;
+    width: fit-content;
+    transition: 0.3s
+}
+.empty-btn, .tab-title{
+    border: 1px solid var(--white);
+    color: var(--white)
+}
+/*
+changed in styles 3
+added .empty-btn.active
+*/
+.empty-btn:hover, .empty-btn.active, .tab-title:not(.active):hover{
+    border-color: var(--main-color);
+    color: var(--main-color);
+    transition: 0.3s
+}
+.filled-btn, .tab-title.active{
+    background: var(--main-gradient);
+    color: var(--white);
+    border: none
+}
+/*
+changed in styles
+added .slider-navigation >div.active:hover
+*/
+.filled-btn:hover, .tab-title.active:hover, .slider-navigation >div.active:hover{
+    background: var(--hover-gradient);
+    transition: 0.3s
+}
+.white-btn{
+    color: var(--black);
+    background: var(--white);
+    width: fit-content;
+}
+.white-btn:hover{
+    outline: 1px solid var(--white);
+    color: var(--white);
+    background: none;
+    transition: 0.3s
+}
+span.error{
+    margin-top: 4px;
+    display: block;
+    color: var(--red);
+    font-size: 1.2rem   
+}
+.bg-wrap{
+    position: absolute;
+    width: 100vw;
+    height: 100dvh
+}
+.bg-wrap img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+.bg-wrap:after{
+    content: '';
+    background-color: var(--black);
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.bg-wrap video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+/* changed in styles 2 
+.section-bg-wrap
+*/
+.section-bg-wrap{
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 100%;
+    top: 0;
+    left: 20px;
+    overflow: hidden;
+    border-radius: var(--image-border-radius)
+}
+.section-bg-wrap img, .section-bg-wrap video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+.section-bg-wrap:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--section-bg-after)
+}
+/* changed in styles 2 
+added line-height
+        */
+.btn.with-short-arrow, .btn.with-long-arrow{
+    align-items: center;
+    gap: 15px;
+    width: fit-content;
+    line-height: 1
+}
+.btn.with-short-arrow{
+    padding-right: 0
+}
+
+.short-arrow-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff15;
+    border-radius: 50%;
+    width: var(--btn-size);
+    height: var(--btn-size)
+}
+/* changed in styles 2 
+змінила gap у всіх .grid-...
+*/
+.grid-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px
+}
+/* changed in styles 2 
+add .grid-2-1 and .grid-account styles
+*/
+.grid-2-1{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px
+}
+.grid-account{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px
+}
+.grid-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px
+}
+.grid-4{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px
+}
+/* changed in styles 2 
+added !important
+*/
+.none{
+    display: none!important
+}
+.text-gray{
+    color: var(--gray)
+}
+.gray-bg{
+    background-color: var(--section-bg);
+    padding: var(--section-padding) 0
+}
+.title-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.title-wrap h2{
+    max-width: 550px
+}
+.rating-stars{
+    display: flex;
+    align-items: center;
+    gap: 3px
+}
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+.rating-stars img{
+    height: 15px
+}
+.rating-mark{
+    font-weight: 600
+}
+.slider-navigation{
+    display: flex;
+    gap: 15px;
+    margin: 30px auto 0;
+    width: fit-content
+}
+.slider-navigation >div{
+    width: var(--btn-size);
+    height: var(--btn-size);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-color-transparent-2);
+    cursor: pointer;
+    transition: 0.3s
+}
+.slider-navigation >div:hover{
+    background: var(--main-gradient);
+    transition: 0.3s
+}
+.slider-navigation >div.active{
+    background: var(--main-gradient);
+    transition: 0.3s
+}
+
+.slider-navigation .prev img{
+    transform: rotate(180deg)
+}
+span.required{
+    color: var(--red);
+    display: inline-block;
+    margin-left: 3px
+}
+
+/* changed in styles 23
+    add .main-color, .green and
+    .red
+        */
+.main-color{
+    color: var(--main-color)
+}
+.green{
+    color: var(--green)
+}
+.red{
+    color: var(--red)
+}
+/* end of common classes */
+
+/* header */
+
+
+/* changed in styles 2 
+         header tag, not .header class
+        position: fixed
+        z-index: 5
+         */
+header{
+    position: fixed;
+    /* position: absolute; */
+    width: 100%;
+    z-index: 5
+}
+
+.header-mobile{
+    display: none
+}
+.header.scroll{
+    background-color: #ffffff;
+    box-shadow: 0px 1px 10px 1px rgba(17, 17, 17, 0.25)
+}
+.scroll-show, .header.scroll .scroll-hidden{
+    display: none
+}
+.header.scroll .scroll-show{
+    display: block
+}
+/*
+changed in styles 2
+header-desktop
+*/
+.header-desktop.scroll .main-menu ul a{
+    color: var(--black)
+}
+/*
+changed in styles 2
+new color black
+*/
+.header.scroll .empty-btn{
+    color: var(--black);
+    border: 1px solid var(--black)
+}
+
+/*
+changed in styles
+added max-width
+*/
+/*
+changed in styles 2
+changed .header .container and .header .container:not(.account) styles
+*/
+.header .container:not(.account){
+    max-width: 100dvw
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+/*
+changed in styles 2
+changed height logo
+*/
+.logo, .logo img{
+    height: 55px
+}
+.header-btns{
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+.header-btns .lang-switch{
+    margin-left: 20px
+}
+.main-menu{
+    margin: 0 auto 0 60px
+}
+.main-menu ul{
+    display: flex;
+    align-items: center;
+    gap: 35px
+}
+.main-menu ul a{
+    color: var(--white)
+}
+
+/* end of header */
+
+/* language switch */
+
+.lang-switch{
+    cursor: pointer
+}
+.lang-switch .show-item{
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+.lang-switch .show-item img:not(:first-child){
+    transition: 0.3s
+}
+.lang-switch .show-item:hover img:not(:first-child){
+    transform: rotate(-180deg);
+    transition: 0.3s
+}
+.lang-switch .list{
+    padding-top: 15px;
+    display: none
+}
+.lang-switch .list li:not(:first-child){
+    margin-top: 5px
+}
+
+/* end of language switch */
+
+/* social */
+
+.social{
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+.social >a{
+    display: block;
+    width: var(--btn-size);
+    height: var(--btn-size)
+}
+/*
+
+changed in styles 2
+hover
+
+*/
+.fb{
+    background: url(../img/icons/f-empty.svg) no-repeat;
+    background-size: 100%
+}
+.instagram{
+    background: url(../img/icons/i-empty.svg) no-repeat;
+    background-size: 100%
+}
+.fb:hover{
+    background: url(../img/icons/f.svg) no-repeat;
+    background-size: 100%
+}
+.instagram:hover{
+    background: url(../img/icons/i.svg) no-repeat;
+    background-size: 100%
+}
+
+/* end of social */
+
+.course-card .preview-media .img-container{
+    height: 260px
+}
+.course-card .preview-media .img-container video, .course-card .preview-media .img-container img{
+    border-radius: var(--image-border-radius)
+}
+/*
+changed in styles
+box-shadow
+*/
+
+/*
+changed in styles 2
+стилі .course-card перенесено з styles-to-sections.css в general.css
+трохи внесено змін
+*/
+
+/* course card */
+
+.course-card{
+    padding: 30px 20px;
+    box-shadow: var(--items-box-shadow);
+    /*background-color: var(--main-color-transparent);*/
+    border-radius: var(--image-border-radius);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s
+}
+.course-card .rating{
+    margin-top: 3px
+}
+/*
+changed in styles 2
+remove padding, remove height
+*/
+.course-card .some-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    background: #ffffff70;
+    margin: auto 0 25px
+
+}
+.course-card .some-info >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px
+}
+.course-card .some-info span{
+    font-size: 1.4rem
+}
+.course-card .price{
+    color: var(--black);
+    font-size: 2.2rem;
+    font-weight: 500
+}
+.course-card .price.sale .sale-price{
+    background-image: var(--main-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text
+}
+.course-card .price.sale{
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+.course-card .old-price{
+    -webkit-text-fill-color: var(--gray);
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-decoration: line-through;
+    text-decoration-thickness: from-font
+}
+.course-card .buy-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0
+}
+/*
+        changed in styles 2
+        .course-card .title
+        .wishlist-icon
+        
+        .course-card h3 тепер в контейнері .title
+    
+    */
+.course-card .title{
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px
+}
+.wishlist-icon{
+    height: 25px;
+    cursor: pointer
+}
+.course-card p:last-of-type{
+    margin-bottom: 25px
+}
+.course-card .preview-media{
+    position: relative
+}
+.course-card .preview-media .category{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #ffffff80;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    height: var(--btn-size);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.course-card .preview-media .category span{
+    background-image: var(--main-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text
+    
+}
+/* end of course card */
+
+/* footer */
+
+/*
+
+changed in styles 2
+remove footer.grid-4 styles
+
+*/
+
+footer, .footer, .footer-bottom{
+    position: relative
+}
+
+/*
+
+changed in styles 2
+footer
+.footer
+.footer >div
+
+*/
+footer .container{
+    position: relative
+}
+footer .section-bg-wrap{
+    border-radius: var(--image-border-radius);
+    overflow: hidden
+}
+.footer{
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+.footer >div{
+    padding: 0 25%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.footer p{
+    color: var(--white)
+}
+.footer >div:first-child p{
+    margin: 30px 0
+}
+.footer h4{
+    color: var(--white)
+}
+.footer ul, .footer .contacts address{
+    margin-top: 30px
+}
+.footer a{
+    color: var(--white)
+}
+.footer .contacts a{
+    display: block
+}
+.footer .contacts a img{
+    margin: 0 10px -4px 0
+}
+.footer ul li:not(:first-child){
+    margin-top: 5px
+}
+.footer .contacts address a:not(:first-child){
+    margin-top: 15px
+}
+.footer-bottom{
+    padding: 20px 0;
+    background: var(--white)
+}
+
+.footer-bottom a{
+    background-image: var(--hover-gradient);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text
+}
+.footer-text__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px 10px;
+    flex-wrap: wrap
+}
+/* end of footer */
+
+@media all and (min-width: 768px){
+    .main-menu ul a, .header-btns .btn{
+        font-size: 1.6rem
+    }
+}
+@media all and (max-width: 1400px){
+    /*
+
+changed in styles 2
+ --btn-size: 40px
+
+*/
+    :root{
+        --section-padding: 60px;
+        --btn-size: 40px
+    }
+    .main-menu ul{
+        gap: 25px
+    }
+    .header-btns .lang-switch {
+        margin-left: 10px
+    }
+
+    /*
+
+changed in styles 2
+changed logo height
+
+*/
+    .logo, .logo img {
+        height: 45px
+    }
+ /* changed in styles 2 
+add .grid-2-1 and .grid-account styles
+*/
+    .grid-2, .grid-2-1, .grid-account{
+        gap: 60px
+    }
+    .grid-3, .grid-4{
+        gap: 30px
+    }
+    h1 {
+        font-size: 5rem
+    }
+     /* changed in styles 23
+add .module-title span
+*/
+    h2, .module-title span {
+        font-size: 3.5rem
+    }
+    /* changed in styles 2 
+remove h3 styles
+*/
+    .subtitle{
+        font-size: 2rem
+    }
+    .subtitle:not(.main-block .subtitle){
+        margin-bottom: 10px
+    }
+       /*
+    changed in styles 2
+    стилі карточки курсу перенесені з файлу styles-to-sections.css в general.css
+    клас popular-courses__item замінено на course-card
+    .popular-courses__item .some-info
+    */
+    .course-card .some-info{
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 15px
+    }
+    .select .options{
+        top: 50px
+    }
+}
+@media all and (max-width: 1200px){
+    
+    .header-mobile{
+        display: block
+    }
+    /* changed in styles 2 
+    .menu-btns flex
+    */
+    .header-mobile.scroll .menu-btns.scroll{
+        display: flex
+    }
+    .header-mobile.scroll .menu-btns:not(.scroll){
+        display: none
+    }
+    .header-desktop{
+        display: none
+    }
+    /* changed in styles 2 
+         gap: 30px
+    */
+    .header-btns{
+        gap: 30px
+    }
+    /* changed in styles 2 
+    .grid-2, .grid-2-1, .grid-account
+  
+    */
+    .grid-2, .grid-2-1, .grid-account {
+        gap: 30px
+    }
+   
+    .grid-3{
+        grid-template-columns: 1fr 1fr
+    }
+    .advantages__items{
+        grid-template-columns: 1fr 1fr 1fr
+    }
+   
+    .grid-2{
+        gap: 30px
+    }
+    .footer.grid-4 {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px 20px
+    }
+    .footer ul, .footer .contacts address {
+        margin-top: 15px
+    }
+
+    .header-mobile {
+        display: block
+    }
+
+    .header-mobile .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+    .header-mobile.open .overlay, .header-mobile.open .header-mobile-wrap,
+    .header-mobile.open .menu-btn-close
+    {
+        display: block!important
+    }
+ 
+    .header-mobile.open .menu-btn-open{
+        display: none!important
+    }
+    .header-mobile-wrap .fb{
+        background: url(../img/icons/f-empty-black.svg) no-repeat;
+        background-size: 100%
+    }
+    .header-mobile-wrap .instagram{
+        background: url(../img/icons/i-empty-black.svg) no-repeat;
+        background-size: 100%
+    }
+
+
+  
+/*
+
+changed in styles 2
+changed menu-btns styles
+
+*/
+    .menu-btns {
+        display: flex;
+        z-index: 3
+    }
+    /*
+changed in styles 2
+add menu-btns img styles
+*/
+    .menu-btns img{
+        width: 30px
+    }
+    .menu-btns.scroll{
+        display: none
+    }
+    .menu-btns .menu-btn-close{
+        position: absolute;
+        top: 20px;
+        right: 14px
+    }
+   
+/*
+changed in styles 2
+changed .header-mobile-wrap styles
+*/
+    .header-mobile-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--white);
+        box-shadow: 0px 1px 10px 1px #ffffff70;
+        width: calc(100vw - 70px);
+        height: 100vh;
+        z-index: 2;
+        padding: 20px;
+        transition: 0.3s
+    }
+
+    .header-mobile-wrap .main-menu {
+        padding-top: 30px;
+        margin: 0
+    }
+
+    .header-mobile-wrap .main-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px
+    }
+
+    .header-mobile-wrap .main-menu ul li a {
+        line-height: 1;
+        display: flex;
+        font-size: 1.6rem;
+        color: var(--black)
+    }
+
+    .header-mobile-wrap address .location-link img, .footer address .location-link img{
+        top: -1px
+    }
+    .header-mobile-wrap address .email-link img, .footer address .email-link img{
+        top: 6px
+    }
+    .header-mobile-wrap address img, .footer address img{
+        max-width: 20px;
+        position: absolute;
+        left: 0;
+        top: 2px
+    }
+    .header-mobile-wrap address a, .footer address a{
+        padding-left: 30px;
+        position: relative
+    }
+    .header-mobile-wrap .social{
+        margin-top: 30px
+    }
+    .header-mobile-wrap .content-wrap{
+        gap: 50px
+    }
+    .header-mobile-wrap .content-wrap .name{
+        display: flex;
+        align-items: center;
+        gap: 15px
+    }
+    .header-mobile-wrap .content-wrap .name h3{
+        font-size: 1.6rem
+    }
+    .header-mobile-wrap .flags .img-container {
+        width: 40px;
+        height: 25px
+    }
+    .header-mobile-wrap address a, .header-mobile-wrap address span{
+        font-size: 1.6rem;
+        color: var(--black);
+        line-height: 2.6rem;
+        width: fit-content;
+        word-break: break-word;
+        margin-top: 0
+    }
+    .header-mobile-wrap address{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-top: 40px
+    }
+    .header-mobile-wrap address .address{
+        padding-left: 32px;
+        position: relative
+    }
+    .header-mobile-wrap address .address:before{
+        content: url("../img/icons/location-white.svg");
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+    .header-mobile-wrap address .email{
+        padding-left: 32px;
+        position: relative
+    }
+    .header-mobile-wrap address .email:before{
+        content: url("../img/icons/email-white.svg");
+        width: 17px;
+        height: 14px;
+        position: absolute;
+        top: 4px;
+        left: 0
+    }
+    .header-mobile-wrap address .tel{
+        padding-left: 32px;
+        position: relative
+    }
+    .header-mobile-wrap address .tel:before{
+        content: url("../img/icons/call-white.svg");
+        width: 17px;
+        height: 14px;
+        position: absolute;
+        top: 2px;
+        left: 0
+    }
+    .header.menu-translate .header-mobile-wrap{
+        transform: translateX(-100%);
+        transition: 0.3s
+    }
+    .header:not(.menu-translate) .overlay{
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #20202047;
+        backdrop-filter: blur(5px);
+        width: 100vw;
+        height: 100vh;
+        transition: 0.1s
+    }
+    .header-mobile-wrap .main-menu nav >ul >li{
+        flex-direction: column;
+        gap: 20px
+    }
+  /*
+    changed in styles 2
+    стилі карточки курсу перенесені з файлу styles-to-sections.css в general.css
+    клас popular-courses__item замінено на course-card
+    .popular-courses__item .some-info
+    */
+ 
+    .course-card .some-info{
+        justify-content: flex-start;
+        padding-left: 0
+    }
+   
+}
+@media all and (max-width: 991px) {
+ /* changed in styles 2 
+add .grid-2-1 styles
+*/
+    .grid-2, .grid-3, .grid-2-1, .grid-account{
+        grid-template-columns: 1fr;
+        gap: 30px
+    }
+
+    h1 {
+        font-size: 4rem
+    }
+     /* changed in styles 3 
+add .module-title span
+*/
+    h2, .module-title span {
+        font-size: 3rem
+    }
+    h3, .account-title {
+        font-size: 2.4rem
+    }
+    .subtitle:not(.main-block .subtitle){
+        font-size: 1.6rem
+    }
+     /* changed in styles 2 
+     section p:not(:first-child)
+ .footer >div
+*/
+section p:not(:first-child) {
+    margin-top: 10px
+}
+    .footer >div{
+        padding: 0 20px
+    }
+
+}
+@media all and (max-width: 768px) {
+    h1{
+        font-size: 3.5rem
+    }
+    /* changed in styles 23
+     add .module-title span
+*/
+    h2, .module-title span {
+        font-size: 3rem
+    }
+    h3, .account-title{
+        font-size: 2.4rem;
+        word-break: break-word
+    }
+
+    .grid-2{
+        grid-template-columns: 1fr
+    }
+    .title-wrap{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px
+    }
+    .title-wrap h2{
+        max-width: 100%
+    }
+    /* changed in styles 2 
+        .social
+    */
+    .social{
+        gap: 10px
+    }
+      /*
+    changed in styles 2
+    стилі карточки курсу перенесені з файлу styles-to-sections.css в general.css
+    клас popular-courses__item замінено на course-card
+    .popular-courses__item .preview-media .img-container
+    .popular-courses__item .some-info
+    */
+    .course-card .preview-media .img-container {
+        height: 320px
+    }
+    .course-card .some-info {
+        justify-content: center;
+        gap: 20px
+    }
+    .footer.grid-4 >div:first-child {
+        padding-right: 0
+    }
+    .footer.grid-4 {
+        grid-template-columns: 1fr;
+        gap: 60px 0
+    }
+    .footer >div:first-child p {
+        margin: 15px 0
+    }
+
+}
+@media all and (max-width: 600px){
+/* changed in styles 2 
+h1
+h2
+         .subtitle
+    */
+   
+    h1 {
+        font-size: 3.4rem
+    }
+    /* changed in styles 23
+add  .module-title span
+    */
+    h2, .module-title span {
+        font-size: 2.8rem
+    }
+    
+    .subtitle {
+        font-size: 1.4rem
+    }
+    
+    section p:not(:first-child) {
+        margin-top: 10px
+    }
+    .title-wrap, .advantages__items{
+        gap: 15px
+    }
+    .course-card .preview-media .category span {
+        font-size: 1.4rem
+    }
+     /*
+    changed in styles 2
+    стилі карточки курсу перенесені з файлу styles-to-sections.css в general.css
+    клас popular-courses__item замінено на course-card
+    .course-card.title
+    .course-card p:last-of-type
+    .course-card .some-info
+     .course-card .buy-info
+     .course-card .buy-info >div:last-child, .course-card .buy-info >div:last-child .btn
+    */
+   
+    .course-card.title {
+        margin-top: 15px
+    }
+    .course-card p:last-of-type {
+        margin-bottom: 15px
+    }
+   
+    .course-card .some-info{
+        gap: 10px 15px;
+        padding: 0;
+        justify-content: flex-start;
+        margin-bottom: 15px
+    }
+    .course-card .buy-info{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px
+    }
+    .course-card .buy-info >div:last-child, .course-card .buy-info >div:last-child .btn{
+        width: 100%
+    }
+    /*
+    changed in styles 2
+   .course-card .preview-media .img-container перенесено з файлу styles-to-sections.css в general.css
+    */
+     /*
+    changed in styles 3
+   changed height
+    */
+    .course-card .preview-media .img-container {
+        height: 200px
+    }
+    /*
+    .footer.grid-4 {
+        gap: 30px 0
+    }
+    .footer ul {
+        margin-top: 10px
+    }
+   
+}
+
+@media all and (max-width: 400px){
+    .btn{
+        padding: 0 20px
+    }
+    .course-card .preview-media .img-container {
+        height: 200px
+    }
+
+}

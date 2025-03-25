@@ -1,0 +1,186 @@
+.registration-page{
+    font-size: 1.6rem
+}
+.registration-page__bg{
+    position: fixed
+}
+.registration-page p{
+    color: var(--white)
+}
+.registration-page__form .logo{
+    height: 100px;
+    max-height: 100px
+}
+.registration-page__header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 1
+}
+.registration-page__header .container{
+    display: flex;
+    justify-content: flex-end
+}
+.registration-page__content{
+    height: calc(100dvh + 30px);
+    position: relative
+}
+.registration-page__content .container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll
+}
+.registration-page__content .container::-webkit-scrollbar {
+    display: none
+}
+.registration-page .form-content{
+    text-align: center
+}
+.registration-page .founder-name{
+    font-size: 3.2rem;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-weight: 600;
+    line-height: 1
+}
+.registration-page .founder-name + p{
+    margin-top: 10px;
+    color: var(--white)
+}
+.registration-page__form .tab-titles{
+    display: flex;
+    gap: 15px;
+    width: 100%
+}
+.registration-page__form .form-wrap__tabs{
+    width: 100%;
+    max-width: 500px;
+    margin-top: 30px
+}
+.registration-page__form{
+    width: 100%;
+    max-width: 500px
+}
+.registration-page__form .tab-title{
+    width: 100%
+}
+.registration-page__form button{
+    width: 100%
+}
+.registration-page__form .tab-items{
+    margin-top: 30px
+}
+.registration-page__form label{
+    color: var(--white);
+    display: inline-block;
+    margin-bottom: 4px
+}
+.registration-page__form form >div:not(:first-child, .login-btns){
+    margin-top: 15px
+}
+.registration-page__form button{
+    margin-top: 30px
+}
+.registration-page__form button + .btn{
+    margin-top: 15px
+}
+.registration-page__form input, .registration-page__form select, .registration-page__form .select{
+    background: #ffffff10;
+    border: none;
+    color: var(--white)
+}
+.registration-page__form select option{
+    color: var(--black)
+}
+.registration-page__form .select .options >div{
+    color: var(--white)
+}
+.registration-page__form input:focus, .registration-page__form select:focus, .registration-page__form .select:focus{
+    background: #ffffff25
+}
+/*
+changed in styles 3
+top: 12px
+*/
+.registration-page__form .select-container:after{
+    content: url('../img/icons/arrow-down-white.svg');
+    position: absolute;
+    right: 25px;
+    top: 12px;
+    transition: 0.3s
+}
+.registration-page__form .select-container:hover:after{
+    content: url('../img/icons/arrow-down-white.svg');
+    position: absolute;
+    right: 25px;
+    top: 12px;
+    transform: rotate(-180deg);
+    transition: 0.3s
+}
+
+.forgot-password{
+    margin-top: 4px;
+    display: block;
+    color: var(--white);
+    font-size: 1.4rem;
+    text-decoration: underline
+}
+.registration-page__form{
+    padding: 30px 0
+}
+
+.registration-page__bg video{
+    height: 100dvh;
+    width: 100dvw;
+    object-fit: cover
+}
+span.error{
+    display: none
+}
+.login-btn-separator{
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+.login-btn-separator .line{
+    width: 100%;
+    height: 1px;
+    background-color: var(--white)
+}
+.login-btn-separator .text{
+    color: var(--white);
+    text-wrap-mode: nowrap
+}
+.login-btns{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px
+}
+.login-btns img{
+    height: 35px
+}
+
+@media all and (max-width: 768px) {
+    .registration-page{
+        font-size: 1.4rem
+    }
+    .registration-page__header{
+        padding: 20px 0
+    }
+    .registration-page .founder-name {
+        font-size: 2.4rem
+    }
+    .registration-page__form form >div:not(:first-child, .login-btns) {
+        margin-top: 10px
+    }
+    .registration-page__form button + .btn {
+        margin-top: 10px
+    }
+
+    
+}

@@ -1,0 +1,103 @@
+/* contact form popup */
+.contact-form-popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 10
+}
+.contact-form-popup .overlay{
+    background-color: var(--black);
+    opacity: 0.65;
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+/*
+changes in the popup
+.contact-form-popup__container
+.contact-form-popup__content
+*/
+.contact-form-popup__container{
+    margin: 20px;
+}
+.contact-form-popup__content{
+    padding: 35px 50px;
+    border-radius: var(--image-border-radius);
+    box-shadow: var(--items-box-shadow);
+    background-color: var(--white);
+    z-index: 7;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto
+}
+.contact-form-popup__content h3{
+    margin-bottom: 30px;
+    text-align: center
+}
+.contact-form-popup__content form >div:not(:first-child, .btns, .test form >div){
+    margin-top: 15px
+}
+.test form >div:not(:first-child){
+    margin-top: 30px
+}
+.contact-form-popup__content .btns{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px
+}
+.contact-form-popup__content hr{
+    height: 1px;
+    background: var(--border-color);
+    border: none;
+    margin-top: 30px
+}
+.contact-form-popup__content .btns .btn{
+    width: 50%
+}
+.contact-form-popup.thank-you .icon{
+    width: fit-content;
+    margin: 0 auto 5px
+}
+.contact-form-popup.thank-you .icon img{
+    height: 60px
+}
+
+.contact-form-popup.thank-you p{
+    text-align: center
+}
+.contact-form-popup.thank-you .btn{
+    margin: 30px auto 0
+}
+.contact-form-popup.thank-you.questionary-popup .btn{
+    margin-top: 0
+}
+.account-title{
+    text-align: center
+}
+.contact-form-popup.thank-you .account-title{
+    margin-bottom: 10px
+}
+.contact-form-popup.thank-you .contact-form-popup__container{
+    max-width: 550px
+}
+.contact-form-popup__container{
+    z-index: 2
+}
+@media all and (max-width: 600px){
+    .contact-form-popup__content{
+        padding: 30px 20px
+    }
+    .contact-form-popup__content .btns, .contact-form-popup__content .filter .btns{
+        flex-direction: column;
+        gap: 10px
+    }
+}
+
+/* end of contact form popup */
