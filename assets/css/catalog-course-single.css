@@ -428,7 +428,8 @@ h2:not(.about h2, .contact h2):before{
     grid-template-columns: 1fr
   }
   .main-block .container{
-    align-items: flex-start
+    align-items: flex-start;
+    padding-top: 60px
   }
   
 }
