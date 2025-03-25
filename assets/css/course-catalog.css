@@ -413,4 +413,7 @@
     width: 100%;
     align-items: center
 }
+.list-of-courses .more-btn{
+    margin-top: 30px
+}
 }
