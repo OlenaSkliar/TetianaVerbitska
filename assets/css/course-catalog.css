@@ -1,6 +1,6 @@
 .header-course-catalog{
-    /* background: #ffffff25; */
-    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.25),rgba(255, 255, 255, 0) 100%);
+    background: #ffffff25;
+    /* background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.25),rgba(255, 255, 255, 0) 100%); */
 }
 .main-block.course-catalog .section-content >div{
     display: flex;
